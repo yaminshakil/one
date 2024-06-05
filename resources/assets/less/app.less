@@ -1,0 +1,190 @@
+@import "./../../../node_modules/bootstrap/less/bootstrap";
+
+// @import "./spark/spark";
+@import "./../../../vendor/laravel/spark/resources/assets/less/spark";
+
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+@import url("https://fonts.googleapis.com/css?family=Saira:300,400,600");
+
+html, body {
+    background-color: #fff;
+    color: #333b3f;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 100;
+    height: 100vh;
+    margin: 0;
+}
+
+.full-height {
+    height: 100vh;
+}
+
+.flex-center {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.position-ref {
+    position: relative;
+}
+
+.top-right {
+    position: absolute;
+    right: 10px;
+    top: 18px;
+}
+
+.content {
+    text-align: center;
+}
+
+.panel-heading, .panel-title {
+    font-family: 'Saira', sans-serif;
+    font-weight: 600;
+    font-size:large;
+}
+h1, h2, h3, h4 {
+    font-family: 'Saira', sans-serif;
+    font-weight: 400;
+}
+
+.title {
+  font-size: 5em !important;
+  margin-bottom: -10px;
+}
+
+.subtitle {
+    font-size: 2em;
+    opacity:.8;
+}
+
+.links > a {
+    color: #636b6f;
+    padding: 0 25px;
+    font-size: .8em;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.m-b-md {
+    margin-bottom: 30px;
+}
+.title .m-b-md {
+}
+
+.meta p.title {
+  font-size: 1em !important;
+}
+
+//from http://flatuicolors.com/
+@panelcolors: #1abc9c, //1 turquoise
+              #2ecc71, //2 emerald
+              #3498db, //3 peter river
+              #9b59b6, //4 amethyst
+              #f1c40f, //5 sun flower
+              #e67e22, //6 carrot
+              #e74c3c, //7 alizarin
+              #34495e; //8 wet asphalt
+@hovercolors: #16a085,#27ae60,#2980b9,#8e44ad,#f39c12,#d35400,#c0392b,#2c3e50;
+@panelslength : length(@panelcolors);
+.panel-variations(@colors; @hovers; @index) when (iscolor(extract(@colors, @index))) and (@index > 0) {
+  .panel-variations(@colors; @hovers; (@index - 1));
+
+  @color: extract(@colors, @index);
+  @hover: extract(@hovers, @index);
+
+  .panel@{index}, .panel@{index} > .panel-heading{
+      border-color: @color;
+      opacity:0.95;
+      min-height:150px;
+      text-align:center;
+  }
+  .panel@{index} a{
+      color: @color;
+  }
+  .panel@{index}, .panel@{index} > .panel-heading:hover{
+      border-color: @hover;
+      opacity:1;
+  }
+  .panel@{index} a:hover{
+      color: @hover;
+  }
+}
+
+.panel-variations(@panelcolors;@hovercolors;@panelslength);
+
+.panel-heading {
+  .lnr {
+    font-size: 100px;
+  }
+  a:hover {
+    text-decoration: none
+  }
+}
+
+.panel-price {
+    font-size: 30px;
+    line-height: 1;
+}
+.panel-price .sub{
+    font-size: 16px;
+    color: #95a5a6;
+    padding-left: 3.5em;
+}
+
+.panel-body br{
+  line-height: 2.5em;
+}
+
+.list-group-item {
+  text-align:left;
+}
+
+h3.controlname {
+  margin-bottom: 0px;
+}
+h4.controldesc {
+  font-size:115%
+}
+.controltype {
+  font-size:x-small;
+  margin-bottom: 1em;
+}
+.controlpanel {
+  margin-bottom:1em;
+}
+.controlquestion{
+  font-weight: normal
+}
+.controldesc a:hover {
+  text-decoration: none
+}
+.hoverable{
+  opacity:.5
+}
+.hoverable:hover{
+  opacity:1
+}
+
+#answerFile {
+  border: 1px solid #eee;
+    border-radius: 5%;
+    margin: 1.5em;
+    padding: 0 1em 0 1em;
+}
+
+#spark-app {
+  padding: 0em 3em 0px 3em;
+}
+
+.terms-of-service p{
+  padding-bottom:1em;
+}
+
+.form-group .required:after {
+  content:"*";
+  color:red;
+}
